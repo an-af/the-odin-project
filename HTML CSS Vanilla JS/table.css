@@ -1,5 +1,28 @@
-table,
-tr,
+.container {
+    /* border: 1px solid red; */
+
+}
+
+p {
+    text-align: center;
+}
+
+table {
+    margin: auto;
+}
+
+table {
+    border: 1px solid black;
+    padding: 0;
+    border-spacing: 0;
+}
+
+th {
+    padding: 5px;
+    border: 1px solid black;
+}
+
 td {
+    padding: 5px;
     border: 1px solid black;
 }
