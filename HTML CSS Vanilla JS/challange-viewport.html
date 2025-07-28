@@ -6,17 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challange</title>
     <link rel="stylesheet" href="reset.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+        :root {
+            font-size: 16px;
+        }
+
+
+
+        main {
+            /* border: 1px solid black; */
+            width: 100vw;
+            height: 90vh;
+            margin: auto;
+            max-width: 1200px;
+            min-height: 90vh;
+        }
+
+        .hero {
+            font-size: 2.3rem;
+            background-color: #609431;
+            height: 70%;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+
+        .hero:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 1rem;
+            /* border: 1px solid; */
+            margin: auto;
+            margin-top: 1.5rem;
+            width: 80%;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        /* Font */
+
+        .fascinate-regular {
+            font-family: "Fascinate", system-ui;
+            font-style: normal;
+        }
+
+        .raleway {
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .raleway-500 {
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .raleway-700 {
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+    </style>
+
 </head>
 
 <body>
     <main>
-        <section class="hero">
-            <h1>Selamat datang Ahnaf</h1>
-            <h1>Gen Z Petani yang ingin menjadi freelancer</h1>
+        <section class="hero raleway">
+            <h1>Ahnaf Is.. </h1>
+            <h1>Farmer + Freelancer + Entreurpreuner </h1>
         </section>
-        <section class="footer">
-            <p>Aku sedang melatih kemampuan diriku untuk sering sering koding dan ini adalah contoh halaman web yang
-                menggunakan unit <strong>px</strong>.<br>
+        <section class="footer raleway-500">
+            <p> ini adalah contoh halaman web yang
+                menggunakan unit <span class="raleway-700">px</span>
                 Ukurannya tetap, nggak berubah meskipun layar kecil atau besar.</p>
         </section>
     </main>
