@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyIdea</title>
+    <style>
+        /* === Global Reset & Base Styles === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #689F38;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* === Header (Search) === */
+        .header {
+            padding: 16px;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #CCCCCC;
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .search-bar:focus {
+            border-color: #689F38;
+        }
+
+        /* === Add Button (Floating) === */
+        .add-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #689F38;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(104, 159, 56, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .add-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* === Idea List === */
+        .idea-list {
+            padding: 16px;
+        }
+
+        .idea-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: box-shadow 0.3s;
+        }
+
+        .idea-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .idea-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: #333333;
+        }
+
+        .idea-desc {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 8px;
+        }
+
+        .category {
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 8px;
+            background-color: #E8F5E9;
+            color: #689F38;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* === Responsive Fix === */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+
+
+
+
+<body>
+
+
+    <div class="container">
+        <h1>MyIdea</h1>
+
+        <!-- Search Bar -->
+        <div class="header">
+            <input type="text" class="search-bar" placeholder="Cari ide..." />
+        </div>
+
+        <!-- Idea List -->
+        <div class="idea-list">
+            <!-- Sample Idea -->
+            <div class="idea-card">
+                <div class="idea-title">AI untuk deteksi hama tanaman</div>
+                <div class="idea-desc">Gunakan model ML sederhana untuk analisis foto daun dan prediksi serangan hama.
+                </div>
+                <span class="category">🤖 Machine Learning</span>
+            </div>
+
+            <!-- Another Sample -->
+            <div class="idea-card">
+                <div class="idea-title">Remote work checklist</div>
+                <div class="idea-desc">Template harian buat pastiin produktivitas tetap oke meskipun kerja dari rumah.
+                </div>
+                <span class="category">💻 Remote Work</span>
+            </div>
+
+            <!-- Empty State -->
+            <div class="idea-card" style="text-align:center; color:#999;">
+                <p>Tidak ada ide yang disimpan.</p>
+                <p>Klik tombol + untuk mulai!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Add Button -->
+    <button class="add-btn">+</button>
+
+
+</body>
+
+<!-- === SCRIPT UNTUK KONTROL MODAL === -->
+<script>
+    // Ambil elemen
+    const modal = document.getElementById("addModal");
+    const addBtn = document.querySelector(".add-btn");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const saveBtn = document.getElementById("saveBtn");
+
+    // Buka modal
+    addBtn.onclick = () => {
+        modal.style.display = "block";
+    };
+
+    // Tutup modal
+    cancelBtn.onclick = () => {
+        modal.style.display = "none";
+    };
+
+    // Tutup kalau klik luar modal
+    window.onclick = (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Simpan ide (contoh sederhana)
+    saveBtn.onclick = () => {
+        const title = document.getElementById("titleInput").value.trim();
+        const desc = document.getElementById("descInput").value.trim();
+        const category = document.getElementById("categorySelect").value;
+
+        if (!title || !desc) {
+            alert("Judul dan deskripsi wajib diisi!");
+            return;
+        }
+
+        // Buat card baru
+        const ideaList = document.querySelector(".idea-list");
+        const newCard = document.createElement("div");
+        newCard.className = "idea-card";
+        newCard.innerHTML = `
+      <div class="idea-title">${title}</div>
+      <div class="idea-desc">${desc}</div>
+      <span class="category">${category}</span>
+    `;
+
+        // Tambahkan ke list
+        ideaList.insertBefore(newCard, ideaList.children[ideaList.children.length - 1]);
+
+        // Kosongin input
+        document.getElementById("titleInput").value = "";
+        document.getElementById("descInput").value = "";
+        document.getElementById("categorySelect").value = "🌱 EcoFarm";
+
+        // Tutup modal
+        modal.style.display = "none";
+
+        // Alert sukses
+        alert("✅ Ide berhasil disimpan!");
+    };
+</script>
+
+</html>
