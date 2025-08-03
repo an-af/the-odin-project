@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[CH]-Position</title>
+    <link rel="stylesheet" href="reset.css">
+    <!-- Style sendiri -->
+    <style>
+        :root {
+            --primary: #007bff;
+            --dark: #222;
+            --light: #f8f9fa;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1> <span>CSS Position</span>, Penting ?</h1>
+        <p>Belajar CSS tanpa posisition = Bangun rumah tanpa pondasi</p>
+
+    </header>
+    <!-- ! HEADER -->
+    <!-- Main -->
+    <main>
+        <!-- Static -->
+        <section>
+            <h2>1, Position : static</h2>
+            <p>Elemen mengikuti flow normal, <span>Tidak bisa pake
+                    top/bottom/left/right
+                </span></p>
+            <!-- Example static -->
+            <div>
+                <p>Ini tetap ga bisa di pindah ya.. :-)</p>
+            </div>
+            <!-- END Example static -->
+        </section>
+        <!-- End Static -->
+
+        <!-- Relative -->
+        <section>
+            <h2>2. position relative;</h2>
+            <p>Bisa dipindah dari posisi aslinya, tapi tetep di flow dokumen</p>
+            <!-- Example relative -->
+            <div class="example-relative">
+                <p>Aku relative</p>
+                <p>-> Geser 20px</p>
+            </div>
+            <!-- End example relative    -->
+        </section>
+        <!-- End Relative -->
+
+        <!-- Absolute -->
+        <section>
+            <h2>3, Position absolute;</h2>
+            <p>Lepas dari flow, mengikuti parent yang berposisi (relatif / absolut)</p>
+            <div class="example-absolute">
+                <p>parent aktif</p>
+                <div class="example-absolute-1">
+                    <p>Aku terbang !</p>
+                </div>
+            </div>
+        </section>
+        <!-- End abolute -->
+
+        <!-- Fixed -->
+        <section>
+            <h2>4, Position fixed;</h2>
+            <p>Tetap di layar meskipun di scroll, Cocok buat navbar atau button penting</p>
+            <div class="example-fixed">
+                <p>Scroll terus, <span>lihat kanan bawah</span></p>
+                <div class="exmpale-fixed-1">
+                    <p>Aku Tetap disini</p>
+                </div>
+            </div>
+        </section>
+        <!-- End Fixed -->
+
+        <!-- Sticky -->
+        <section>
+            <h2>5, Position: sticky;</h2>
+            <p>Campuran relative + fixed "Nempel" Saat mencapai posisi tertentu</p>
+            <div>
+                <p>Scroll ke bawah -></p>
+                <div class="example-sticky">
+                    <p>Aku nemple saat mencapai top:80px</p>
+                </div>
+            </div>
+            <p>Ini hanya scroll test, Sticky bekerja</p>
+        </section>
+        <!-- End Sticky -->
+    </main>
+    <!-- ! Main ! -->
+</body>
+
+</html>
