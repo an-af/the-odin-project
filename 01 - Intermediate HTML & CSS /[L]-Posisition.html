@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: white;
+            /* Ensure the iframe has a white background */
+        }
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="id">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Why Positioning Matters</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+            :root {
+                --primary: #007bff;
+                --dark: #222;
+                --light: #f8f9fa;
+                --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            body {
+                font-family: 'Montserrat', sans-serif;
+                margin: 0;
+                background-color: var(--light);
+                color: var(--dark);
+                line-height: 1.6;
+            }
+
+            header {
+                background-color: var(--primary);
+                color: white;
+                text-align: center;
+                padding: 3rem 1rem;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+                box-shadow: var(--shadow);
+            }
+
+            main {
+                max-width: 1200px;
+                margin: 8rem auto 2rem;
+                padding: 1rem;
+            }
+
+            section {
+                margin-bottom: 4rem;
+                border: 1px solid #ddd;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                background: white;
+            }
+
+            .demo-box {
+                height: 120px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                background-color: #e9ecef;
+                margin: 1rem;
+                font-weight: 600;
+                color: #495057;
+            }
+
+            /* Positioning Demo */
+            .static {
+                position: static;
+                background: #f8d7da;
+                border: 2px solid #dc3545;
+            }
+
+            .relative {
+                position: relative;
+                background: #d1ecf1;
+                border: 2px solid #007bff;
+            }
+
+            .absolute {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: #d4edda;
+                border: 2px solid #28a745;
+                color: #155724;
+                width: 100px;
+                height: 60px;
+                font-size: 0.9rem;
+            }
+
+            .fixed {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #fff3cd;
+                border: 2px solid #ffc107;
+                color: #856404;
+                width: 150px;
+                height: 60px;
+                font-size: 0.85rem;
+                z-index: 999;
+            }
+
+            .sticky {
+                position: sticky;
+                top: 80px;
+                background: #d1ecf1;
+                border: 2px solid #007bff;
+                color: #004085;
+                margin-top: 2rem;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            footer {
+                text-align: center;
+                padding: 2rem;
+                background: var(--dark);
+                color: white;
+                margin-top: 2rem;
+            }
+
+            pre {
+                background: #222;
+                color: #00ff88;
+                padding: 1rem;
+                border-radius: 8px;
+                overflow-x: auto;
+                font-size: 0.9rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Why Positioning Matters</h1>
+            <p>Belajar CSS tanpa positioning = bikin rumah tanpa fondasi</p>
+        </header>
+
+        <main>
+            <!-- Static -->
+            <section>
+                <h2>1. position: static;</h2>
+                <p>Elemen mengikuti flow normal. <strong>Tidak bisa pakai top/left/right/bottom</strong>.</p>
+                <div class="demo-box static">
+                    Ini tetap di flow-nya. Gak bisa dipindah!
+                </div>
+            </section>
+
+            <!-- Relative -->
+            <section>
+                <h2>2. position: relative;</h2>
+                <p>Bisa dipindah dari posisi aslinya, tapi tetap di flow dokumen.</p>
+                <div class="demo-box relative">
+                    Aku relatif! <span style="position:relative; left:20px; background:yellow;">→ Geser 20px</span>
+                </div>
+            </section>
+
+            <!-- Absolute -->
+            <section>
+                <h2>3. position: absolute;</h2>
+                <p>Lepas dari flow, mengikuti parent yang berposition (relative/absolute).</p>
+                <div class="demo-box relative" style="height: 150px;">
+                    Parent relatif
+                    <div class="absolute">Aku terbang!</div>
+                </div>
+            </section>
+
+            <!-- Fixed -->
+            <section>
+                <h2>4. position: fixed;</h2>
+                <p>Tetap di layar meskipun discroll. Cocok buat navbar atau button penting.</p>
+                <div class="demo-box">
+                    Scroll terus... Lihat kanan bawah 👉
+                </div>
+                <div class="fixed">Aku tetap di sini!</div>
+            </section>
+
+            <!-- Sticky -->
+            <section>
+                <h2>5. position: sticky;</h2>
+                <p>Campuran relative + fixed. "Nempel" saat mencapai posisi tertentu.</p>
+                <div style="height: 300px; overflow-y: scroll; border:1px solid #ccc; padding:1rem;">
+                    <p>Scroll ke bawah →</p>
+                    <div class="sticky">Aku nempel saat sampai top: 80px</div>
+                    <p style="margin-top: 500px;">Ini hanya scroll test. Sticky bekerja!</p>
+                </div>
+            </section>
+
+            <!-- Kesimpulan -->
+            <section>
+                <h2>Kenapa Positioning Penting?</h2>
+                <ul>
+                    <li>✅ Bikin navbar, modal, tooltip</li>
+                    <li>✅ Kontrol layout secara presisi</li>
+                    <li>✅ Buat UI modern (card, popup, fixed button)</li>
+                    <li>❌ Tanpa positioning → desain kaku & broken</li>
+                </ul>
+                <pre>
+/* Contoh penting */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+      </pre>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 - Gen Z Developer | Positioning is Power 💪</p>
+        </footer>
+    </body>
+
+    </html>
+
+
+
+    <script>
+
+    </script>
+</body>
+
+</html>
