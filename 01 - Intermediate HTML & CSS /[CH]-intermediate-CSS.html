@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[CH] Intermediate CSS</title>
+</head>
+<!-- CSS reset -->
+<link rel="stylesheet" href="reset.css">
+<style>
+    @font-face {
+        font-family: "barlow-12";
+        src: url(fonts/barlow-v12-latin-500.woff2);
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: "barlow-12";
+        src: url(fonts/barlow-v12-latin-300.woff2);
+        font-weight: 300;
+    }
+
+    @font-face {
+        font-family: "barlow-12";
+        src: url(fonts/barlow-v12-latin-700.woff2);
+        font-weight: 700;
+    }
+
+    body {
+        box-sizing: border-box;
+    }
+
+
+    .container {
+        width: 80vw;
+        height: 50vh;
+        max-width: 1200px;
+        margin: auto;
+        padding: 1.25rem;
+        font-family: 'barlow-12', Courier, monospace;
+
+    }
+
+    .card-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+
+    .card-header img {
+        border-radius: 0.3rem;
+        opacity: 0.8;
+        /* box-shadow: 10px 10px 10px rgba(138, 15, 15, 0); */
+    }
+
+    .card-header h2 {
+        font-size: clamp(1.75rem, 2vw, 3.5rem);
+        text-align: center;
+        font-weight: 300;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-bottom: 0.2rem solid rgba(0, 0, 0, 0.195);
+
+    }
+
+    p {
+        font-size: clamp(0, 5rem, 2vw, 2rem);
+        text-align: center;
+        word-spacing: 0.1rem;
+        font-weight: 500;
+        padding: 0.2rem;
+    }
+
+    .submit {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .submit button {
+        font-size: clamp(1rem, 1vw, 2rem);
+        font-family: 'barlow-12', Courier, monospace;
+        background-color: white;
+        border: 1px solid black;
+        padding: 0.5rem;
+        letter-spacing: 0.2rem;
+        text-align: center;
+    }
+
+    .submit button:hover {
+        background-color: black;
+        border: 1px solid white;
+        color: white;
+        transform: scale(1.02);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card-header img:hover {
+        transform: scale(1.03);
+        transition: transform 0.5s ease;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <img src="Images/001.png" alt="" srcset="">
+                <h2>𝔸ℕ-𝕒𝕗</h2>
+                <p>Gen Z Programmer, Pentest, Ecopreneur, Farmer</p>
+            </div>
+            <div class="card-body">
+                <p>Learning new skill everyday ;-)</p>
+            </div>
+            <div class="submit">
+                <button class="btn">🚀 Send Me</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
