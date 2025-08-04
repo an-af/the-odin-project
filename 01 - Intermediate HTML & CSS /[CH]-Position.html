@@ -8,12 +8,99 @@
     <link rel="stylesheet" href="reset.css">
     <!-- Style sendiri -->
     <style>
+        /* Font Lora */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+        /* [END] Font Lora */
         :root {
-            --primary: #007bff;
-            --dark: #222;
-            --light: #f8f9fa;
+            --primary: #4a7c59;
+            /* Hijau daun, natural & tenang */
+            --dark: #2d3c31;
+            /* Hijau gelap, deep kayak tanah hutan */
+            --light: #f4f7f4;
+            /* Putih soft, kayak sinar pagi di hutan */
+            --accent: #cfc9b5;
+            /* Kuning earthy, buat highlight (opsional) */
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
+        body {
+            background-color: var(--accent);
+        }
+
+
+        header {
+            top: 0;
+            background-color: var(--primary);
+            height: 25vh;
+            width: 100%;
+            color: var(--light);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: fixed;
+        }
+
+
+
+        header h1 {
+            font-size: clamp(2rem, 2.5vh, 3.5rem);
+        }
+
+        header p {
+            font-size: clamp(1rem, 1.5vh, 2.5rem);
+        }
+
+        section {
+            background-color: var(--light);
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        section h2 {
+            font-size: clamp(1.5rem, 2vh, 2rem);
+            margin: 0.5rem 0.5rem;
+        }
+
+        section p {
+            font-size: clamp(1rem, 2vh, 1.2rem);
+            margin: 0.5rem 0.5rem;
+        }
+
+
+        /* Font */
+        .lora-400 {
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .lora-500 {
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .lora-600 {
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .lora-700 {
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* [END Font] */
     </style>
 </head>
 
@@ -22,8 +109,8 @@
 <body>
     <!-- HEADER -->
     <header>
-        <h1> <span>CSS Position</span>, Penting ?</h1>
-        <p>Belajar CSS tanpa posisition = Bangun rumah tanpa pondasi</p>
+        <h1 class="lora-400"> <span>CSS Position</span>, Penting ?</h1>
+        <p class="lora-700">Belajar CSS tanpa posisition = Bangun rumah tanpa pondasi</p>
 
     </header>
     <!-- ! HEADER -->
@@ -95,6 +182,31 @@
             <p>Ini hanya scroll test, Sticky bekerja</p>
         </section>
         <!-- End Sticky -->
+
+
+        <section>
+            <h2>Kenapa Positioning Penting?</h2>
+            <!-- Daftar checklist -->
+            <ul>
+                <li>✅ Bikin navbar, modal, tooltip</li>
+                <li>✅ Kontrol layout secara presisi</li>
+                <li>✅ Buat UI modern (card, popup, fixed button)</li>
+                <li>❌ Tanpa positioning → desain kaku & broken</li>
+            </ul>
+            <!--[END] Daftar checklist -->
+            <div class="snippets">
+                /* Contoh penting */
+                <p>.modal {</p>
+                <p>position: fixed;</p>
+                <p>top: 0; left: 0;</p>
+                <p>width: 100%; height: 100%;</p>
+                <p>background: rgba(0,0,0,0.5);</p>
+                <p>display: flex;</p>
+                <p>justify-content: center;</p>
+                <p>align-items: center;</p>
+                <p>}</p>
+            </div>
+        </section>
     </main>
     <!-- ! Main ! -->
 </body>
