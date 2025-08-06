@@ -56,6 +56,12 @@
             margin: 1rem;
         }
 
+        main {
+            margin: auto;
+            max-width: 1200px;
+            width: 95vw;
+        }
+
         section {
             background-color: var(--light);
             height: 20vh;
@@ -63,12 +69,14 @@
             padding: 1rem 1rem 0.5rem 0.5rem;
             border-radius: 0.5rem;
             box-shadow: var(--shadow);
+            overflow: hidden;
         }
 
         section h2 {
             font-size: clamp(1.5rem, 2vh, 2rem);
             margin-bottom: 1rem;
-
+            font-weight: 700;
+            font-family: "Lora", serif;
         }
 
         section p {
@@ -76,8 +84,9 @@
             margin: 0.5rem 0.5rem;
             font-family: "Lora", serif;
             font-optical-sizing: auto;
-            font-weight: 400;
+            font-weight: 500;
             font-style: normal;
+            color: rgba(0, 0, 0, 0.607);
         }
 
         section:first-child {
@@ -85,15 +94,114 @@
 
         }
 
-        .example {
-            border: 1px solid black;
+        section .example {
+            height: 55%;
         }
 
         .static {
-            position: static;
-            background: #f8d7da;
             border: 2px solid #dc3545;
+            background: #f8d7da;
+            position: static;
         }
+
+        .relative {
+            border: 2px solid #3546dc;
+            background: #d7f8e7;
+        }
+
+        .relative p {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .relative span {
+            position: relative;
+            left: 20px;
+            top: -10px;
+            background-color: yellow;
+        }
+
+        .absolute {
+            border: 2px solid #3546dc;
+            background: #d7f8e7;
+            text-align: center;
+        }
+
+        .absolute p {
+            margin-top: 2rem;
+        }
+
+        .absolute-1 {
+            border: 2px solid #d9dc35;
+            background: #f8f6d7;
+            position: absolute;
+            right: 28%;
+            top: 76%;
+        }
+
+        .fixed {
+            border: 2px solid #80706f;
+            background: #e6e0df;
+            text-align: center;
+        }
+
+        .fixed p {
+            margin-top: 1rem;
+        }
+
+        .fixed-1 {
+            position: fixed;
+            bottom: 2%;
+            right: 1%;
+            border: 2px solid #e224179e;
+            background: #f816059e;
+            padding: 1rem;
+        }
+
+        .example-2 {
+            border: 2px solid #dc3545;
+            background: #f8d7da;
+            height: 200px;
+            overflow-y: scroll;
+            text-align: center;
+        }
+
+        .example-2 p {
+            margin-top: 1rem;
+            color: rgb(255, 255, 255);
+        }
+
+        .sticky {
+            position: sticky;
+            background-color: orange;
+            top: 100px;
+            padding: 0.1rem;
+            margin: 1rem;
+
+        }
+
+        /* List */
+        ul {
+            margin-top: 1rem;
+        }
+
+        li {
+            padding: 0.5rem;
+        }
+
+        .snippets {
+            background-color: black;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+
+        }
+
+        .snippets p {
+            color: rgba(87, 195, 87, 0.742);
+            font-size: 1rem;
+        }
+
 
 
         /* Font */
@@ -125,6 +233,7 @@
             font-style: normal;
         }
 
+
         /* [END Font] */
     </style>
 </head>
@@ -139,16 +248,17 @@
 
     </header>
     <!-- ! HEADER -->
+
     <!-- Main -->
     <main>
         <!-- Static -->
         <section>
             <h2>1, Position : static</h2>
-            <p>Elemen mengikuti flow normal, <span>Tidak bisa pake
+            <p>Elemen mengikuti flow normal, <span class="lora-700">Tidak bisa pake
                     top/bottom/left/right
                 </span></p>
             <!-- Example static -->
-            <div class="example">
+            <div class="example static">
                 <p>Ini tetap ga bisa di pindah ya.. :-)</p>
             </div>
             <!-- END Example static -->
@@ -160,9 +270,8 @@
             <h2>2. position relative;</h2>
             <p>Bisa dipindah dari posisi aslinya, tapi tetep di flow dokumen</p>
             <!-- Example relative -->
-            <div class="example-relative">
-                <p>Aku relative</p>
-                <p>-> Geser 20px</p>
+            <div class="example relative">
+                <p>Aku relative! <span>-> Geser 20px</span> </p>
             </div>
             <!-- End example relative    -->
         </section>
@@ -172,9 +281,9 @@
         <section>
             <h2>3, Position absolute;</h2>
             <p>Lepas dari flow, mengikuti parent yang berposisi (relatif / absolut)</p>
-            <div class="example-absolute">
+            <div class="example absolute">
                 <p>parent aktif</p>
-                <div class="example-absolute-1">
+                <div class="absolute-1">
                     <p>Aku terbang !</p>
                 </div>
             </div>
@@ -185,9 +294,9 @@
         <section>
             <h2>4, Position fixed;</h2>
             <p>Tetap di layar meskipun di scroll, Cocok buat navbar atau button penting</p>
-            <div class="example-fixed">
+            <div class="example fixed">
                 <p>Scroll terus, <span>lihat kanan bawah</span></p>
-                <div class="exmpale-fixed-1">
+                <div class="fixed-1">
                     <p>Aku Tetap disini</p>
                 </div>
             </div>
@@ -195,22 +304,23 @@
         <!-- End Fixed -->
 
         <!-- Sticky -->
-        <section>
+        <section style="height: 30vh;">
             <h2>5, Position: sticky;</h2>
             <p>Campuran relative + fixed "Nempel" Saat mencapai posisi tertentu</p>
-            <div>
+            <div class="example-2">
                 <p>Scroll ke bawah -></p>
-                <div class="example-sticky">
+                <div class=" sticky">
                     <p>Aku nemple saat mencapai top:80px</p>
                 </div>
+                <p style="margin-top: 10rem;">Ini hanya scroll test, Sticky bekerja</p>
             </div>
-            <p>Ini hanya scroll test, Sticky bekerja</p>
         </section>
         <!-- End Sticky -->
 
 
-        <section>
+        <section style="height: 60vh ;padding:0;">
             <h2>Kenapa Positioning Penting?</h2>
+            <hr>
             <!-- Daftar checklist -->
             <ul>
                 <li>✅ Bikin navbar, modal, tooltip</li>
@@ -219,8 +329,9 @@
                 <li>❌ Tanpa positioning → desain kaku & broken</li>
             </ul>
             <!--[END] Daftar checklist -->
-            <div class="snippets">
-                /* Contoh penting */
+            <div class="snippets" style="border-radius: 1rem;">
+                <p>/* Contoh penting */</p>
+                <br>
                 <p>.modal {</p>
                 <p>position: fixed;</p>
                 <p>top: 0; left: 0;</p>
@@ -229,7 +340,10 @@
                 <p>display: flex;</p>
                 <p>justify-content: center;</p>
                 <p>align-items: center;</p>
+                <br>
                 <p>}</p>
+                <br>
+                <br>
             </div>
         </section>
     </main>
