@@ -19,7 +19,7 @@
             /* Hijau gelap, deep kayak tanah hutan */
             --light: #f4f7f4;
             /* Putih soft, kayak sinar pagi di hutan */
-            --accent: #cfc9b5;
+            --accent: #dddbd6;
             /* Kuning earthy, buat highlight (opsional) */
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
@@ -32,42 +32,67 @@
         header {
             top: 0;
             background-color: var(--primary);
-            height: 25vh;
+            padding: 3rem 1rem;
             width: 100%;
             color: var(--light);
             display: flex;
             flex-direction: column;
             z-index: 1000;
-            justify-content: space-evenly;
             align-items: center;
-            box-shadow: var(--shadow);
+            justify-content: space-around;
             position: fixed;
+            box-shadow: var(--shadow);
         }
-
-
 
         header h1 {
             font-size: clamp(2rem, 2.5vh, 3.5rem);
+            display: block;
+            margin: 1rem;
         }
 
         header p {
             font-size: clamp(1rem, 1.5vh, 2.5rem);
+            display: block;
+            margin: 1rem;
         }
 
         section {
             background-color: var(--light);
-            margin: 1rem;
-            padding: 1rem;
+            height: 20vh;
+            margin: 1.5rem 1rem 1.5rem 1rem;
+            padding: 1rem 1rem 0.5rem 0.5rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
         }
 
         section h2 {
             font-size: clamp(1.5rem, 2vh, 2rem);
-            margin: 0.5rem 0.5rem;
+            margin-bottom: 1rem;
+
         }
 
         section p {
             font-size: clamp(1rem, 2vh, 1.2rem);
             margin: 0.5rem 0.5rem;
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        section:first-child {
+            margin-top: 10rem;
+
+        }
+
+        .example {
+            border: 1px solid black;
+        }
+
+        .static {
+            position: static;
+            background: #f8d7da;
+            border: 2px solid #dc3545;
         }
 
 
@@ -109,8 +134,8 @@
 <body>
     <!-- HEADER -->
     <header>
-        <h1 class="lora-400"> <span>CSS Position</span>, Penting ?</h1>
-        <p class="lora-700">Belajar CSS tanpa posisition = Bangun rumah tanpa pondasi</p>
+        <h1 class="lora-700"> <span>CSS Position</span>, Penting ?</h1>
+        <p class="lora-400">Ga Ada position = Bangun rumah tanpa pondasi</p>
 
     </header>
     <!-- ! HEADER -->
@@ -123,7 +148,7 @@
                     top/bottom/left/right
                 </span></p>
             <!-- Example static -->
-            <div>
+            <div class="example">
                 <p>Ini tetap ga bisa di pindah ya.. :-)</p>
             </div>
             <!-- END Example static -->
