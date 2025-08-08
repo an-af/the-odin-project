@@ -1,0 +1,221 @@
+<!-- Membuat responsive  -->
+<!-- calc(), min(), max(), clamp(), rgb(), dan gradient()  -->
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Playground</title>
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4a7c59;
+            --accent: #d7c378;
+            --dark: #2d3c31;
+            --light: #f4f7f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f4f7f4, #e8f0e3);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #3a5f44);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        /* 1. calc() - Dynamic Width */
+        .box-calc {
+            width: calc(100% - 2rem);
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: rgb(74, 124, 89, 0.1);
+            border-left: 5px solid var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* 2. min() & max() */
+        .container {
+            width: min(90%, 1000px);
+            max-width: max(300px, 80vw);
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h3 {
+            color: var(--primary);
+        }
+
+        /* 3. clamp() + gradient */
+        .hero {
+            height: min(100vh, 600px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(74, 124, 89, 0.7), rgba(45, 60, 49, 0.8)),
+                url('https://source.unsplash.com/random/1600x900/?nature') no-repeat center/cover;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            max-width: 600px;
+        }
+
+        /* 4. Gradient Button */
+        .btn {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(215, 195, 120, 0.3);
+        }
+
+        /* 5. Color Challenge */
+        .color-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .color {
+            height: 100px;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .color-1 {
+            background: rgb(74, 124, 89);
+        }
+
+        .color-2 {
+            background: rgb(215, 195, 120);
+        }
+
+        .color-3 {
+            background: linear-gradient(45deg, #4a7c59, #d7c378, #f4f7f4);
+        }
+
+        .color-4 {
+            background: linear-gradient(90deg, rgb(45, 60, 49, 0.8), rgb(244, 247, 244, 0.8));
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🔥 Responsive Playground</h1>
+        <p>Latihan: calc(), min(), max(), clamp(), rgb(), gradient()</p>
+    </header>
+
+    <main>
+        <!-- 1. calc() -->
+        <div class="box-calc">
+            <h3>🧮 calc()</h3>
+            <p>Lebar: <code>calc(100% - 2rem)</code> → padding tetap, content nggak keluar.</p>
+        </div>
+
+        <!-- 2. min() & max() -->
+        <div class="container">
+            <h3>📏 min() & max()</h3>
+            <p>Lebar: <code>min(90%, 1000px)</code> → maks 1000px</p>
+            <p>Min width: <code>max(300px, 80vw)</code> → minimal 300px atau 80% layar</p>
+        </div>
+
+        <!-- 3. clamp() + gradient -->
+        <section class="hero">
+            <h2>Welcome to Nature</h2>
+            <p>Font & height pake clamp() dan min(). Background pake gradient + gambar.</p>
+            <button class="btn">Explore</button>
+        </section>
+
+        <!-- 4. Color & Gradient -->
+        <section>
+            <h2 style="text-align: center; margin: 2rem 0;">🎨 Color & Gradient</h2>
+            <div class="color-box">
+                <div class="color color-1">rgb(74,124,89)</div>
+                <div class="color color-2">rgb(215,195,120)</div>
+                <div class="color color-3">Multi-color Gradient</div>
+                <div class="color color-4">Semi-transparent Gradient</div>
+            </div>
+        </section>
+
+        <p style="text-align: center; margin: 2rem;">
+            ✅ Sekarang giliran lu! Ubah desain ini pake gaya lu sendiri: warna, font, layout, animasi!
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Gen Z Developer | Responsive is Power 💪</p>
+    </footer>
+</body>
+
+</html>
