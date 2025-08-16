@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[CH]-CardnFont</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green-dark: #344E41;
+            --dark-grey: #DAD7CD;
+            --beige: #f4f7f4;
+            --accent: #A3B18A;
+            --shadow: 0 4px 12px rgba(45, 60, 49, 0.1);
+        }
+
+        body {
+            background-color: var(--dark-grey);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            /* border: 1px solid black; */
+        }
+
+
+        .card {
+            background-color: var(--beige);
+            width: clamp(350px, 60vw, 450px);
+            margin: auto;
+            margin-top: 7vh;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(31, 40, 33, 0.15);
+        }
+
+        .card .image {
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+            display: flex;
+            margin: auto;
+        }
+
+        .card .image img {
+            margin: auto;
+            object-fit: cover;
+            width: 65%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .card .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card .content h2 {
+            text-align: center;
+            padding: 0.5rem 2rem 0.5rem 2rem;
+            font-size: 1.7rem;
+            color: var(--green-dark);
+        }
+
+        .card .content p {
+            text-align: center;
+            padding: 0.5rem 2rem 0.5rem 2rem;
+            font-size: 1rem;
+            color: var(--green-dark);
+        }
+
+        .card .content button {
+            margin: 0.5rem;
+            margin-bottom: 2rem;
+            width: 200px;
+            padding: 1rem;
+            border-radius: 8px;
+            border: none;
+            background: linear-gradient(48deg, rgba(163, 177, 138, 1) 19%, rgba(52, 78, 65, 1) 67%);
+            color: var(--beige);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .card .content button:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(215, 195, 120, 0.3);
+        }
+
+        footer {
+            margin: 2rem;
+            text-align: center;
+            color: var(--green-dark);
+        }
+
+
+        /* Font */
+        .roboto-100 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 100;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .roboto-200 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 200;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .roboto-300 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .roboto-400 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .roboto-500 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .roboto-600 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .roboto-700 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .roboto-800 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .roboto-900 {
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="card">
+            <div class="image">
+                <img src="Images/1755222574.png" alt="" srcset="">
+            </div>
+            <div class="content">
+                <h2 class="roboto-600">Explore Nature</h2>
+                <p class="roboto-300">Nikmati pemandangan alam indonesia meliputi sungai, sawah dan pegunungan</p>
+                <button class="roboto-500">🚀 Mulai petualangan</button>
+            </div>
+        </div>
+        <footer>
+            <p class="roboto-300">Remake by AN-AF | Nature UI Exercise</p>
+        </footer>
+    </main>
+
+</body>
+
+</html>
