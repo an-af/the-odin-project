@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage</title>
+
+    <!-- Style -->
+    <style>
+        /* Import font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        :root {
+            --background: #e2e7da;
+            --beige: #ffffff;
+            --dark-green: #344e41;
+            --light-green: #95a578;
+            /* shadow */
+            --shadow: 0 4px 12px rgba(45, 60, 49, 0.1);
+        }
+
+        body {
+            background-color: var(--background);
+        }
+
+        main {
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        section {
+            margin: auto;
+            margin-top: 20vh;
+            border-radius: 8px;
+            background-color: var(--beige);
+            width: clamp(350px, 60vh, 450px);
+
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(31, 40, 33, 0.15);
+        }
+
+
+
+        section header {
+            margin: 1rem;
+            padding: 2rem;
+            text-align: center;
+            font-family: "Roboto", sans-serif;
+        }
+
+
+
+        section header h2 {
+            font-weight: 900;
+            color: var(--dark-green);
+            letter-spacing: 0.1rem;
+        }
+
+        section header p {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--light-green);
+            padding: 0.5rem;
+        }
+
+        section .inputText {
+            font-family: "Roboto", sans-serif;
+            margin: auto;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+        }
+
+        section .inputText label {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: var(--dark-green);
+        }
+
+        section .inputText input {
+            font-family: "Roboto", sans-serif;
+            text-decoration: none;
+            border: 1px solid var(--light-green);
+            color: var(--light-green);
+            height: 2rem;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        section .link {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        section .btn {
+            margin: auto;
+            width: 90%;
+            margin-top: 3rem;
+        }
+
+        section .btn input[type="submit"] {
+            background-color: var(--dark-green);
+            font-family: "Roboto", sans-serif;
+            width: 100%;
+            height: 3em;
+            border-radius: 8px;
+            border: none;
+            color: var(--beige);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        section .btn input[type="submit"]:hover {
+            background-color: #436353;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+
+
+<body>
+    <main>
+        <section>
+            <form method="POST">
+                <header>
+                    <h2>👋 Hai </h2>
+                    <p>Silahkan masuk ke akun Anda</p>
+                </header>
+                <div class="inputText">
+                    <label for="Username">Username</label>
+                    <input type="text" name="username" id="Username" placeholder="Masukan Username anda">
+                </div>
+                <div class="inputText">
+                    <label for="Password">Password</label>
+                    <input type="password" name="password" id="Password" placeholder="Masukan Password anda">
+                </div>
+                <div class="btn">
+                    <input type="submit" value="⚡ Masuk">
+                </div>
+                <div class="link">
+                    <p>Belum punya akun ? <a href="#">Register !</a></p>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
