@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoginPage</title>
+    <title>02-Register Form</title>
 
     <!-- Style -->
     <style>
@@ -146,8 +146,12 @@
             <form method="POST">
                 <header>
                     <h2>👋 Hai </h2>
-                    <p>Silahkan masuk ke akun Anda</p>
+                    <p>Buat akun mu sekarang !</p>
                 </header>
+                <div class="inputText">
+                    <label for="Username">Nama</label>
+                    <input type="text" name="name" id="Name" placeholder="Masukan Nama anda">
+                </div>
                 <div class="inputText">
                     <label for="Username">Username</label>
                     <input type="text" name="username" id="Username" placeholder="Masukan Username anda">
@@ -156,12 +160,16 @@
                     <label for="Password">Password</label>
                     <input type="password" name="password" id="Password" placeholder="Masukan Password anda">
                 </div>
+                <div class="inputText">
+                    <label for="Password">Re-type Password</label>
+                    <input type="password" name="password" id="Password" placeholder="Ulangi Password anda">
+                </div>
                 <div class="btn">
-                    <input type="submit" value="⚡ Masuk">
+                    <input type="submit" value="🚀 Daftar">
                 </div>
                 <div class="link">
-                    <p>Belum punya akun ? <a
-                            href="http://127.0.0.1:5500/02%20-%20Self%20Project/02-registerForm.html">Register !</a></p>
+                    <p>Sudah punya akun ? <a
+                            href="http://127.0.0.1:5500/02%20-%20Self%20Project/01-loginForm.html">Login !</a></p>
                 </div>
             </form>
         </section>
