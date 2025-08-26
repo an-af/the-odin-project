@@ -1,0 +1,504 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS Grid vs Flexbox - Konsep Pareto 80/20</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .flex-icon {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .grid-icon {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .card-content h3 {
+            color: #555;
+            margin: 15px 0 10px;
+            font-size: 1.3rem;
+        }
+
+        .card-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .example {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .code {
+            background: #2d3748;
+            color: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .usage-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .practical-examples {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .practical-examples h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .example-item {
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .example-item:hover {
+            border-color: #667eea;
+            transform: scale(1.02);
+        }
+
+        .example-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .example-item h3 span {
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        .example-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cheat-sheet {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .cheat-sheet h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .cheat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cheat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cheat-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .cheat-item h3::before {
+            content: "⚡";
+            margin-right: 10px;
+        }
+
+        .cheat-item ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .cheat-item li {
+            margin: 8px 0;
+            padding: 5px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .cheat-item li:last-child {
+            border-bottom: none;
+        }
+
+        .cheat-item li::before {
+            content: "•";
+            color: #ffd700;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .tip {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+            font-size: 0.95rem;
+        }
+
+        .tip strong {
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Belajar CSS Grid vs Flexbox</h1>
+            <p class="subtitle">Konsep Pareto 80/20 - Fokus pada 20% yang memberikan 80% hasil</p>
+        </header>
+
+        <div class="comparison">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon flex-icon">F</div>
+                    <h2 class="card-title">Flexbox</h2>
+                </div>
+                <div class="card-content">
+                    <p><strong>1D Layout</strong> - Cocok untuk layout satu dimensi (baris ATAU kolom)</p>
+
+                    <div class="example">
+                        <h3>✅ Kapan Harus Pakai Flexbox?</h3>
+                        <p>Saat kamu butuh menyusun elemen dalam <strong>baris atau kolom</strong> dengan kontrol
+                            sejajar dan distribusi ruang.</p>
+                    </div>
+
+                    <div class="example">
+                        <h3>🎯 20% Paling Sering Dipakai:</h3>
+                        <ul style="list-style: none; padding-left: 20px;">
+                            <li>• <code>display: flex</code></li>
+                            <li>• <code>flex-direction</code> (row, column)</li>
+                            <li>• <code>justify-content</code> (space-between, center)</li>
+                            <li>• <code>align-items</code> (center, stretch)</li>
+                            <li>• <code>flex: 1</code> (untuk elemen yang mau mengisi ruang)</li>
+                        </ul>
+                    </div>
+
+                    <div class="code">
+                        /* Contoh Flexbox */
+                        .container {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        }
+                        .item {
+                        flex: 1; /* Mengisi ruang yang tersedia */
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon grid-icon">G</div>
+                    <h2 class="card-title">CSS Grid</h2>
+                </div>
+                <div class="card-content">
+                    <p><strong>2D Layout</strong> - Cocok untuk layout dua dimensi (baris DAN kolom)</p>
+
+                    <div class="example">
+                        <h3>✅ Kapan Harus Pakai Grid?</h3>
+                        <p>Saat kamu butuh <strong>layout kompleks</strong> dengan kontrol baris dan kolom sekaligus.
+                        </p>
+                    </div>
+
+                    <div class="example">
+                        <h3>🎯 20% Paling Sering Dipakai:</h3>
+                        <ul style="list-style: none; padding-left: 20px;">
+                            <li>• <code>display: grid</code></li>
+                            <li>• <code>grid-template-columns</code> (repeat(auto-fit, minmax(300px, 1fr)))</li>
+                            <li>• <code>gap</code> (untuk jarak antar elemen)</li>
+                            <li>• <code>grid-column</code> (untuk span kolom)</li>
+                            <li>• <code>minmax()</code> (untuk responsif)</li>
+                        </ul>
+                    </div>
+
+                    <div class="code">
+                        /* Contoh Grid */
+                        .container {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                        gap: 20px;
+                        }
+                        .item {
+                        grid-column: span 2; /* Span 2 kolom */
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="usage-stats">
+            <div class="stat-card">
+                <div class="stat-number">80%</div>
+                <div class="stat-label">Dari layout bisa dibuat dengan <span class="highlight">20% fitur Grid</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Developer pakai Grid untuk <span class="highlight">layout kompleks</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">90%</div>
+                <div class="stat-label">Layout responsif lebih mudah dengan <span class="highlight">Grid +
+                        minmax()</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">60%</div>
+                <div class="stat-label">Waktu development lebih cepat dengan <span class="highlight">CSS Grid</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="practical-examples">
+            <h2>Contoh Praktis (Pareto 80/20)</h2>
+            <div class="examples-grid">
+                <div class="example-item">
+                    <h3><span>1</span> Layout Blog/Grid Card</h3>
+                    <p><strong>Grid:</strong> Perfect untuk card layout dengan kolom yang responsif. Cukup 1 baris code!
+                    </p>
+                    <div class="code">grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));</div>
+                </div>
+                <div class="example-item">
+                    <h3><span>2</span> Header/Navbar</h3>
+                    <p><strong>Flexbox:</strong> Ideal untuk menyusun item dalam satu baris dengan space-between.</p>
+                    <div class="code">display: flex; justify-content: space-between; align-items: center;</div>
+                </div>
+                <div class="example-item">
+                    <h3><span>3</span> Form Layout</h3>
+                    <p><strong>Grid:</strong> Bisa atur label dan input berdampingan dengan mudah di semua ukuran layar.
+                    </p>
+                    <div class="code">display: grid; grid-template-columns: 1fr 2fr; gap: 10px;</div>
+                </div>
+                <div class="example-item">
+                    <h3><span>4</span> Centering</h3>
+                    <p><strong>Flexbox:</strong> Masih raja untuk centering vertikal & horizontal dalam satu dimensi.
+                    </p>
+                    <div class="code">display: flex; justify-content: center; align-items: center;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cheat-sheet">
+            <h2>Cheat Sheet: Kapan Pakai Grid vs Flexbox?</h2>
+            <div class="cheat-grid">
+                <div class="cheat-item">
+                    <h3>Pakai Grid Ketika...</h3>
+                    <ul>
+                        <li>Buat layout halaman (header, sidebar, content, footer)</li>
+                        <li>Butuh layout dua dimensi (baris & kolom)</li>
+                        <li>Ingin membuat card layout responsif</li>
+                        <li>Perlu mengatur grid area (named areas)</li>
+                        <li>Buat masonry layout atau layout kompleks</li>
+                    </ul>
+                </div>
+                <div class="cheat-item">
+                    <h3>Pakai Flexbox Ketika...</h3>
+                    <ul>
+                        <li>Menyusun item dalam satu baris/kolom</li>
+                        <li>Butuh centering vertikal & horizontal</li>
+                        <li>Membuat navbar atau toolbar</li>
+                        <li>Distribusi ruang antar elemen</li>
+                        <li>Responsive dalam satu dimensi</li>
+                    </ul>
+                </div>
+                <div class="cheat-item">
+                    <h3>Pro Tips!</h3>
+                    <ul>
+                        <li>Grid = "parent" mindset, Flexbox = "child" mindset</li>
+                        <li>Grid untuk layout besar, Flexbox untuk komponen kecil</li>
+                        <li>Bisa digabung! Grid di luar, Flexbox di dalam</li>
+                        <li>minmax() + auto-fit = responsif tanpa media query</li>
+                        <li>gap lebih baik dari margin untuk spacing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tip">
+            <strong>💡 Tip Pareto:</strong> Fokus belajar <span class="highlight">grid-template-columns</span>, <span
+                class="highlight">gap</span>, dan <span class="highlight">minmax()</span> dulu. 3 hal ini bisa atasi 80%
+            kasus layout!
+        </div>
+
+        <footer>
+            <p>Belajarlah 20% yang paling sering digunakan dulu, maka kamu bisa atasi 80% masalah layout! 💪</p>
+        </footer>
+    </div>
+</body>
+
+</html>
+```

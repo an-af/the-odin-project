@@ -1,0 +1,496 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tantangan CSS Grid - Desain Sederhana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .challenge-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .challenge-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+
+        .challenge-icon {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .challenge-title {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .challenge-desc {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .target-layout {
+            background: #2d3748;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .target-layout h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .grid-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .grid-item {
+            height: 80px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .item1 {
+            background: #3498db;
+        }
+
+        .item2 {
+            background: #e74c3c;
+        }
+
+        .item3 {
+            background: #2ecc71;
+        }
+
+        .item4 {
+            background: #f39c12;
+        }
+
+        .item5 {
+            background: #9b59b6;
+        }
+
+        .item6 {
+            background: #1abc9c;
+        }
+
+        .item7 {
+            background: #d35400;
+        }
+
+        .item8 {
+            background: #34495e;
+        }
+
+        .item9 {
+            background: #e67e22;
+        }
+
+        .clues {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 2px solid #c8e6c9;
+        }
+
+        .clues h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .clues h3::before {
+            content: "💡";
+            margin-right: 10px;
+        }
+
+        .clues ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .clues li {
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px dashed #a5d6a7;
+        }
+
+        .clues li:last-child {
+            border-bottom: none;
+        }
+
+        .clues li::before {
+            content: "•";
+            color: #2e7d32;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .solution-area {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .solution {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 3px solid #667eea;
+        }
+
+        .solution h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .code {
+            background: #2d3748;
+            color: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        .explanation {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .explanation h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .final-tip {
+            background: linear-gradient(45deg, #ff9800, #f44336);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .grid-preview {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .challenge-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .challenge-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Tantangan CSS Grid</h1>
+            <p class="subtitle">Desain Sederhana untuk Pemula - Fokus pada 20% yang paling penting!</p>
+        </header>
+
+        <div class="challenge-card">
+            <div class="challenge-header">
+                <div class="challenge-icon">🎯</div>
+                <h2 class="challenge-title">Tantangan #1: Layout 3x3 Grid</h2>
+            </div>
+
+            <p class="challenge-desc">
+                Buat sebuah layout grid dengan <strong>9 kotak</strong> yang disusun dalam <strong>3 baris dan 3
+                    kolom</strong>.
+                Setiap kotak harus memiliki ukuran yang sama dan memiliki jarak yang konsisten antar kotak.
+            </p>
+
+            <div class="target-layout">
+                <h3>🎯 Hasil yang Diharapkan:</h3>
+                <div class="grid-preview">
+                    <div class="grid-item item1">1</div>
+                    <div class="grid-item item2">2</div>
+                    <div class="grid-item item3">3</div>
+                    <div class="grid-item item4">4</div>
+                    <div class="grid-item item5">5</div>
+                    <div class="grid-item item6">6</div>
+                    <div class="grid-item item7">7</div>
+                    <div class="grid-item item8">8</div>
+                    <div class="grid-item item9">9</div>
+                </div>
+                <p><strong>Layout 3×3 dengan 9 kotak berwarna</strong></p>
+            </div>
+
+            <div class="clues">
+                <h3>Petunjuk (Jangan Dibuka Dulu!)</h3>
+                <ul>
+                    <li>Gunakan <span class="highlight">display: grid</span> pada container utama</li>
+                    <li>Atur <span class="highlight">grid-template-columns</span> untuk membuat 3 kolom</li>
+                    <li>Gunakan <span class="highlight">gap</span> untuk memberi jarak antar kotak</li>
+                    <li>Setiap kolom bisa menggunakan <span class="highlight">1fr</span> untuk ukuran yang sama</li>
+                    <li>Jangan lupa atur <span class="highlight">height</span> pada kotak agar terlihat</li>
+                </ul>
+            </div>
+
+            <div class="solution-area">
+                <button id="show-solution">Tampilkan Solusi</button>
+            </div>
+
+            <div class="solution" id="solution">
+                <h3>✅ Solusi:</h3>
+
+                <div class="code">
+                    .container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 15px;
+                    }
+
+                    .grid-item {
+                    height: 80px;
+                    background: #3498db; /* Warna bisa diganti */
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    }
+                </div>
+
+                <div class="explanation">
+                    <h4>Penjelasan:</h4>
+                    <p><strong>grid-template-columns: 1fr 1fr 1fr</strong> membuat 3 kolom dengan ukuran yang sama.
+                        <strong>fr</strong> (fraction) berarti setiap kolom mendapatkan bagian yang sama dari ruang yang
+                        tersedia.</p>
+                    <p><strong>gap: 15px</strong> memberikan jarak 15px antara semua kotak, lebih baik daripada
+                        menggunakan margin karena tidak membuat masalah dengan alignment.</p>
+                    <p>Dengan hanya 3 properti CSS ini, kamu sudah bisa membuat layout grid yang sempurna! Ini adalah
+                        <span class="highlight">20% fitur Grid yang memberikan 80% hasil</span>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="challenge-card">
+            <div class="challenge-header">
+                <div class="challenge-icon">🎯</div>
+                <h2 class="challenge-title">Tantangan #2: Card Layout Responsif</h2>
+            </div>
+
+            <p class="challenge-desc">
+                Buat layout card yang <strong>otomatis menyesuaikan</strong> jumlah kolom berdasarkan ukuran layar. Di
+                layar besar: 3 kolom, di tablet: 2 kolom, di mobile: 1 kolom.
+            </p>
+
+            <div class="target-layout">
+                <h3>🎯 Hasil yang Diharapkan:</h3>
+                <div class="grid-preview" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    <div class="grid-item item1" style="height: 120px;">Card 1</div>
+                    <div class="grid-item item2" style="height: 120px;">Card 2</div>
+                    <div class="grid-item item3" style="height: 120px;">Card 3</div>
+                </div>
+                <p><strong>Layout card yang responsif tanpa media query!</strong></p>
+            </div>
+
+            <div class="clues">
+                <h3>Petunjuk (Jangan Dibuka Dulu!)</h3>
+                <ul>
+                    <li>Gunakan <span class="highlight">repeat(auto-fit, ...)</span> untuk membuat kolom yang fleksibel
+                    </li>
+                    <li>Gunakan <span class="highlight">minmax(250px, 1fr)</span> untuk ukuran kolom</li>
+                    <li><strong>auto-fit</strong> membuat grid menyesuaikan jumlah kolom secara otomatis</li>
+                    <li><strong>minmax()</strong> memastikan kolom tidak terlalu kecil atau terlalu besar</li>
+                    <li>Tambahkan <span class="highlight">gap</span> untuk jarak yang konsisten</li>
+                </ul>
+            </div>
+
+            <div class="solution-area">
+                <button id="show-solution2">Tampilkan Solusi</button>
+            </div>
+
+            <div class="solution" id="solution2">
+                <h3>✅ Solusi:</h3>
+
+                <div class="code">
+                    .container {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 20px;
+                    }
+
+                    .card {
+                    height: 120px;
+                    background: #3498db;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    }
+                </div>
+
+                <div class="explanation">
+                    <h4>Penjelasan:</h4>
+                    <p><strong>repeat(auto-fit, minmax(250px, 1fr))</strong> adalah kombinasi ajaib untuk layout
+                        responsif! Ini berarti:</p>
+                    <p>• <strong>auto-fit</strong>: Grid akan membuat sebanyak mungkin kolom yang muat</p>
+                    <p>• <strong>minmax(250px, 1fr)</strong>: Setiap kolom minimal 250px, maksimal 1fr (satu bagian dari
+                        ruang tersedia)</p>
+                    <p>Dengan satu baris code ini, layout akan otomatis menjadi 1 kolom di mobile, 2 di tablet, dan 3+
+                        di desktop. Ini adalah <span class="highlight">fitur Grid paling powerful</span>!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="final-tip">
+            💡 PRAKTEKAN SEKARANG! Coba buat layout sendiri dengan 20% fitur Grid ini,
+            maka kamu bisa atasi 80% kebutuhan layout web!
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('show-solution').addEventListener('click', function () {
+            document.getElementById('solution').style.display = 'block';
+            this.disabled = true;
+            this.textContent = 'Solusi Ditampilkan!';
+            this.style.background = '#4caf50';
+        });
+
+        document.getElementById('show-solution2').addEventListener('click', function () {
+            document.getElementById('solution2').style.display = 'block';
+            this.disabled = true;
+            this.textContent = 'Solusi Ditampilkan!';
+            this.style.background = '#4caf50';
+        });
+    </script>
+</body>
+
+</html>
+```
