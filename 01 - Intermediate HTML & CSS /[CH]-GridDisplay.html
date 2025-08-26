@@ -31,10 +31,19 @@
         padding: 20px;
     }
 
+
+
     main {
         max-width: 1000px;
         margin: 0 auto;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+    }
 
+    .load {
+        opacity: 1;
+        transform: translateY(0px);
     }
 
     main header {
@@ -215,5 +224,15 @@
         </footer>
     </main>
 </body>
+<script>
+    // ->>- Membuat animasi -<<-
+    document.addEventListener('DOMContentLoaded', () => { // Aktif ketika load DOM
+        const mainLoad = document.querySelector('main'); // cari mana elemnnya
+        setTimeout(() => {
+            mainLoad.classList.add('load')
+        }, 500)
+
+    })
+</script>
 
 </html>
