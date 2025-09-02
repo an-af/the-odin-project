@@ -35,29 +35,32 @@
         .container {
             background-color: var(--aksen);
             /* position */
-            margin: 0 auto;
             margin-top: 2rem;
+            margin: 0 auto;
             /* size */
             max-width: 700px;
             /* background */
             /* Animation */
-            box-shadow: var(--shadow);
+            /* box-shadow: var(--shadow);
             opacity: 0;
             transform: translatex(-20px);
-            transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+            transition: opacity 0.5s ease-in, transform 0.5s ease-in; */
             /* Belajar | Grid display */
             display: grid;
             /* komponene grid */
             grid-template-rows: 100px 100px 100px 100px 100px 100px;
             grid-template-columns: 100px 100px 100px 100px 100px 100px;
+            /* grid untuk proses responsive */
+            grid-auto-rows: 100px;
+            grid-auto-flow: column;
 
         }
 
-        .animate {
+        /* .animate {
             opacity: 1;
             transform: translatex(0);
 
-        }
+        } */
 
         h1 {
             color: var(--army-green);
@@ -80,7 +83,7 @@
 
 
         .item-1 {
-            grid-column: 1/5;
+            grid-column: 1/7;
             grid-row: 1/3;
         }
 
@@ -90,8 +93,19 @@
         } */
 
         .item-2 {
-            grid-row: span 2;
-            grid-column: span 2;
+            /* grid-row: span 2;
+            grid-column: span 2; */
+            grid-area: 2/4/4/6;
+            z-index: 1;
+        }
+
+        .item-3 {
+            /* grid-area : row-start, col-start, row-end, col-end */
+            grid-area: 3/ 1/ 7/ 7;
+        }
+
+        .item-4 {
+            grid-area: 7/8/6/-1;
         }
     </style>
 
@@ -102,6 +116,7 @@
     <div class="item item-1">Item 1</div>
     <div class="item item-2">Item 2</div>
     <div class="item item-3">Item 3</div>
+    <div class="item item-4">Item 4</div>
 </div>
 
 <body>
