@@ -35,12 +35,19 @@ main {
     display: grid;
     grid-template-areas:
         "navbar navbar navbar navbar"
-        "hero image image image"
-        "category category category category"
+        "hero hero image image"
+        "hero hero image image"
+        "hero hero image image"
+        "hero hero image image"
+        "cat cat cat cat"
+        "cat cat cat cat"
+        "cat cat cat cat"
+        "footer footer footer footer"
+        "footer footer footer footer"
     ;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fit, 100px);
 
-    grid-area: 1/1/3/4;
 
 }
 
@@ -49,24 +56,12 @@ main {
 main header {
     grid-area: navbar;
     /* border: 1px solid black; */
-    display: grid;
-    /* grid-template-columns: auto-fit, 1fr minmax(200px, 2fr) minmax(50px, 1fr); */
-    grid-template-columns: auto-fill, 0.5fr 1fr 0.5fr;
-    grid-template-areas:
-        "title menu-1 menu-2"
-    ;
-    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
 
 }
 
-main header ul li {
-    list-style-type: none;
-}
-
-main header ul li a {
-    text-decoration: none;
-
-}
 
 main header h2 {
     font-weight: 100;
@@ -74,15 +69,19 @@ main header h2 {
     grid-area: title;
 }
 
-main header nav {
-    display: block;
-
-}
-
 main header nav ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+}
+
+main header nav ul li {
+    list-style-type: none;
+    margin: 0 1rem;
+}
+
+main header ul li a {
+    text-decoration: none;
 }
 
 
@@ -90,16 +89,47 @@ main header nav ul {
 /* ============= HERO ============= */
 main .hero {
     grid-area: hero;
-    grid-row: auto;
+    padding-left: 3rem;
+
 }
 
 main .picture {
     grid-area: image;
-    justify-self: center;
+    display: flex;
+    justify-content: center;
+
 }
 
 main .category {
+    margin-top: 2rem;
+    grid-area: cat;
+    text-align: center;
+}
 
-    grid-area: category;
+main .category .boxes {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
 
+main .category .boxes .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    background-color: var(--page);
+    grid-area: footer;
+    text-align: center;
+    margin: 1rem;
+}
+
+/* media query */
+
+@media only screen and (max-width: 1024px) {
+    main {
+        background-color: red;
+        width: 98%;
+    }
 }
