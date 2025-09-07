@@ -89,11 +89,14 @@ main header ul li a {
 /* ============= HERO ============= */
 main .hero {
     grid-area: hero;
-    padding-left: 3rem;
+    padding-left: clamp(0.9rem, 2vw, 3rem);
+    justify-self: center;
+    align-self: center;
 }
 
 main .hero h1 {
-    font-size: clamp(1, 3rem, 4vw, 3rem);
+    font-size: clamp(1.3rem, 4vw, 3rem);
+    /* text-align: center; */
 }
 
 main .hero p {
@@ -108,12 +111,21 @@ main .hero button {
     border: 1px solid black;
     border-radius: 8px;
 
+
 }
 
 main .picture {
     grid-area: image;
     display: flex;
     justify-content: center;
+
+}
+
+main .picture .img {
+    background-color: grey;
+    margin-top: 1rem;
+    width: 20rem;
+    height: 20rem;
 
 }
 
@@ -143,10 +155,172 @@ footer {
 }
 
 /* media query */
-
-@media only screen and (max-width: 1024px) {
+/* larged tablet */
+@media only screen and (max-width:1025px) {
     main {
-        background-color: red;
+        grid-template-areas:
+            "navbar navbar navbar navbar"
+            "hero image image image"
+            "hero image image image"
+            "hero image image image"
+            "hero image image image"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "footer footer footer footer"
+            "footer footer footer footer"
+        ;
         width: 98%;
+    }
+
+    main .picture .img {
+        background-color: red;
+        width: 30vw;
+        height: 25vh;
+
+    }
+
+    main .category .boxes .box {
+        margin: 0.5rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* table and larged phone */
+@media only screen and (max-width: 769px) {
+    main {
+        grid-template-areas:
+            "navbar navbar navbar navbar"
+            "image image image image"
+            "... ... ... ..."
+            "... ... ... ..."
+            "... ... ... ..."
+            "... ... ... ..."
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "footer footer footer footer"
+            "footer footer footer footer"
+        ;
+        width: 98%;
+    }
+
+    main .hero {
+        width: 100%;
+        /* border: 1px solid black; */
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    main .hero button {
+        position: relative;
+        right: 20px;
+    }
+
+    main .picture .img {
+        background-color: green;
+        width: 40vw;
+
+    }
+
+
+    main .category {
+        width: 100%;
+        /* border: 1px solid black; */
+        justify-self: center;
+        align-self: center;
+    }
+
+
+
+
+
+
+}
+
+/* phone */
+
+@media only screen and (max-width:768px) {
+    main {
+        width: 85%;
+    }
+
+    main header {
+        display: grid;
+        grid-template-areas:
+            "title title title"
+            "nav1 nav1 nav2"
+        ;
+    }
+
+    main header nav ul {
+        /* background-color: red; */
+        display: flex;
+
+    }
+
+    main header nav:nth-child(2) {
+        grid-area: nav1;
+    }
+
+
+    main header nav:nth-child(3) {
+        grid-area: nav2;
+    }
+
+    main .category .boxes {
+        flex-wrap: wrap;
+    }
+
+}
+
+@media only screen and (max-width:550px) {
+    main {
+        grid-template-areas:
+            "navbar navbar navbar navbar"
+            "navbar navbar navbar navbar"
+            "image image image image"
+            "... ... ... ..."
+            "... ... ... ..."
+            "... ... ... ..."
+            "... ... ... ..."
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "hero hero hero hero"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "cat cat cat cat"
+            "footer footer footer footer"
+            "footer footer footer footer"
+        ;
+    }
+
+    main header {
+        grid-template-areas:
+            "title title title"
+            "nav1 nav1 nav1"
+            "nav2 nav2 nav2"
+        ;
+    }
+
+
+    main header nav {
+        /* border: 1px solid black; */
+    }
+
+    main header nav ul {
+        display: flex;
+        flex-direction: column;
+
     }
 }
