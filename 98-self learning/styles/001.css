@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Zain", Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --background: #ededed;
+    --page: #ffffff;
+    --inputform: #f2f2f2;
+    --navbar: #000;
+    --accent-color: #006aff;
+}
+
+html {
+    font-size: 12px;
+    background-color: var(--background);
+}
+
+nav {
+    height: 60px;
+    background-color: var(--navbar);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.links-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+nav a {
+    color: var(--page);
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+nav a:hover {
+    background-color: var(--accent-color);
+}
+
+nav .home-link {
+    margin-right: auto;
+}
+
+nav svg {
+    fill: white;
+}
+
+#Sidebar-active {
+    display: none;
+}
+
+.open-sidebar-button,
+.close-sidebar-button {
+    padding: 0 20px;
+    display: none;
+}
+
+/* responsive design */
+@media(max-width:450px) {
+    .links-container {
+        flex-direction: column;
+        align-items: start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 200px;
+        background-color: var(--navbar);
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+        /* transisi */
+        transition: 0.75s ease-out;
+    }
+
+    nav a {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+    }
+
+    .open-sidebar-button,
+    .close-sidebar-button {
+        padding: 20px;
+        display: block;
+    }
+
+    #Sidebar-active:checked~.links-container {
+        right: 0;
+    }
+
+    #Sidebar-active:checked~#overlay {
+        background-color: black;
+        opacity: 20%;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        transition: 0.75s ease-out;
+    }
+
+}
