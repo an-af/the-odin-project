@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Zain", Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --bakground: #e2e7da;
+    --navbar: #344e41;
+    --acsent1: #95a578;
+    --acsent2: #ffffff;
+}
+
+html {
+    background-color: var(--bakground);
+}
+
+header {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    background-color: var(--navbar);
+    padding: 0 20px;
+    height: 50px;
+}
+
+header .logo {
+    margin-right: auto;
+}
+
+header .logo svg {
+    fill: var(--acsent1);
+    position: relative;
+    top: 5px;
+}
+
+header .logo a {
+    text-decoration: none;
+    color: var(--acsent1);
+    font-size: 2rem;
+}
+
+
+header input[type="checkbox"] {
+    display: none;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--acsent1);
+    padding: 0 20px;
+}
+
+header nav a:hover {
+    color: white;
+    transition: 0.75s ease-out;
+}
+
+header nav .login-links {
+    background-color: var(--acsent1);
+    color: white;
+    padding: 5px 20px;
+    border-radius: 8px;
+}
+
+header #sidebar-active {
+    display: none;
+}
+
+header .open-sidebar,
+header .close-sidebar {
+    display: none;
+}
+
+/* ---------------- MAIN ---------------- */
+/* [CEK #1] */
+main {
+    text-align: center;
+    max-width: 1200px;
+    width: 95%;
+    margin: auto;
+    margin-top: calc(2rem + 4vw);
+    opacity: 0;
+    transform: translateY(-5%);
+    transition: 0.75s transform ease-in, 0.75s opacity ease-in;
+}
+
+.animate {
+    opacity: 100;
+    transform: translateY(0);
+}
+
+main h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+
+
+}
+
+main p {
+    font-size: calc(0.5rem + 1vw);
+    font-weight: 300;
+}
+
+@media(max-width:680px) {
+    .group-link {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 300px;
+        background-color: var(--navbar);
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+        /* transisi= */
+        transition: 0.75s ease-out;
+    }
+
+    header nav a {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+    }
+
+    header .logo {
+        margin: auto;
+    }
+
+    header .open-sidebar,
+    header .close-sidebar {
+        padding: 20px;
+        display: block;
+
+    }
+
+    /* Jika sidebar aktif maka, link muncul  */
+    #sidebar-active:checked~.group-link {
+        /* right: 0; */
+        right: 0;
+    }
+
+    .login-links {
+        align-self: center;
+        margin-top: auto;
+        margin-bottom: 4rem;
+        width: 50%;
+        text-align: center;
+    }
+
+    #sidebar-active:checked~#overlay {
+        background-color: black;
+        opacity: 20%;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        transition: 0.5s ease-out;
+    }
+}
