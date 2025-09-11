@@ -59,6 +59,25 @@
 
     </main>
 
+    <!-- Modal -->
+    <dialog class="modal" id="modal">
+        <div class="modal-header">
+            <h2>Welcome Back</h2>
+            <h3>Please Login again.. </h3>
+        </div>
+        <div class="modal-content">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+            <label for="passwrod">Password</label>
+            <input type="password" name="" id="">
+        </div>
+        <div class="modal-footer">
+            <button class="login-btn">Login</button>
+            <button class="close-btn">Close</button>
+        </div>
+
+    </dialog>
+
 </body>
 
 </html>
@@ -69,6 +88,22 @@
         setTimeout(() => {
             mainContent.classList.add('animate')
         }, 250)
+    })
+    // -- btn login --
+    let loginModal = document.querySelector('.login-links')
+    //  -- modal --
+    let modal = document.querySelector('#modal')
+    // -- close modal --
+    let closeModal = document.querySelector('.close-btn')
+    loginModal.addEventListener("click", (e) => {
+        e.preventDefault()
+        modal.showModal()
+    })
+
+    closeModal.addEventListener("click", (e) => {
+        e.preventDefault(
+            modal.close()
+        )
     })
 
 

@@ -104,6 +104,110 @@ main p {
     font-weight: 300;
 }
 
+/* ---- DIALOG ---- */
+dialog {
+    border: none;
+    border-radius: 8px;
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    margin: auto;
+
+
+}
+
+dialog:open {
+    animation: fadein 0.5s ease-in-out;
+}
+
+
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+dialog .modal-header {
+    border-radius: 8px 8px 0 0;
+    background-color: var(--navbar);
+    color: var(--acsent2);
+    padding: 1.2rem;
+}
+
+dialog .modal-header h2 {
+    font-size: 2.5rem;
+}
+
+dialog .modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+dialog .modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0 0 1.5rem;
+    width: 90%;
+}
+
+dialog .modal-content label {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+dialog .modal-content input {
+    height: 30px;
+    border: 2px solid var(--navbar);
+    border-radius: 4px;
+    background-color: var(--bakground);
+    padding: 0.5rem;
+}
+
+dialog .modal-footer {
+    /* border: 1px solid black; */
+    margin: auto;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+dialog .modal-footer button {
+    margin: 0.3rem;
+    width: 80px;
+    height: 30px;
+    border: 1px solid var(--acsent1);
+    color: black;
+    border-radius: 3px;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    background-color: var(--acsent2);
+    padding: 0.1rem 0 0 0;
+    transition: 0.2s ease-in;
+}
+
+dialog .modal-footer button:hover {
+    background-color: var(--acsent1);
+    color: white;
+    cursor: pointer;
+}
+
+
+/* ---- END DIALOG ---- */
+
 @media(max-width:680px) {
     .group-link {
         width: 100%;
